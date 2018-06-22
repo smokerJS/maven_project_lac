@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.lac.repository.mapper.ScheduleMapper">
+	<resultMap id="scheduleMap" type="schedule">
+		<result column="sch_no" property="schNo"></result>
+		<result column="user_no" property="userNo"></result>
+		<result column="start_date" property="startDate"></result>
+		<result column="end_date" property="endDate"></result>
+		<result column="sch_detail" property="schDetail"></result>
+		<result column="sch_color" property="schColor"></result>
+		<result column="event_month" property="eventMonth"></result>
+	</resultMap>
+	<select id="selectSchedule" parameterType="int" resultMap="scheduleMap">
+		select *
+		  from tb_schedule
+		 where user_no = #{userNo}
+		 order by start_date
+	</select>
+	<select id="selectScheduleByMonth" parameterType="schedule" resultMap="scheduleMap">
+		select *
+		  from tb_schedule
+		 where (substr(start_date, 6, 2) = #{eventMonth} or substr(end_date, 6, 2) = #{eventMonth})
+		   and user_no = #{userNo}
+		 order by start_date
+	</select>
+
+	<select id="selectEventById" parameterType="int" resultMap="scheduleMap">
+		select *
+		  from tb_schedule
+		 where sch_no=#{schNo}
+	</select>
+	<!-- 인덱스 값 가져오기 -->
+	<select id="selectIndex" resultType="int">
+		select max(sch_no)
+		  from tb_schedule
+	</select>
+
+	<!--새 일정 추가 -->
+	<insert id="insertSchedule" parameterType="schedule">
+		insert into tb_schedule(
+			sch_no,
+			user_no, 
+			start_date,  
+			end_date, 
+			sch_detail,
+			sch_color
+		)
+		values(
+			#{schNo},
+			#{userNo},
+			#{startDate}, 
+			#{endDate}, 
+			#{schDetail},
+			#{schColor}
+		);
+	</insert>
+
+	<!-- 일정편집 -->
+	<update id="updateSchedule" parameterType="schedule">
+		update tb_schedule
+		set start_date = #{startDate},
+		end_date = #{endDate},
+		sch_detail = #{schDetail},
+		sch_color = #{schColor}
+		where sch_no = #{schNo}
+	</update>
+	<!-- 일정날짜 드래그 수정 -->
+	<update id="updateDateByDrag" parameterType="schedule">
+		update tb_schedule
+		set start_date = #{startDate},
+		end_date = #{endDate}
+		where sch_no = #{schNo}
+	</update>
+	<!-- 일정삭제 -->
+	<delete id="deleteSchedule" parameterType="int">
+		delete
+		from tb_schedule
+		where sch_no = #{schNo}	
+	</delete>
+</mapper>

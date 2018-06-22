@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.lac.repository.mapper.ChattingMapper">
+	<resultMap id="chattingMap" type="chatting">
+		<result column="user_no" property="userNo"></result>
+		<result column="nickname" property="nickname"></result>
+		<result column="profile_pic" property="profilePic"></result>
+		<result column="chatting_no" property="chattingNo"></result>
+		<result column="project_no" property="projectNo"></result>
+		<result column="send_user_no" property="sendUserNo"></result>
+		<result column="message" property="message"></result>
+		<result column="msg_type_code" property="msgTypeCode"></result>
+		<result column="send_date" property="sendDate"></result>
+		<result column="ori_file_name" property="oriFileName"></result>
+		<result column="file_size" property="fileSize"></result>
+		<result column="download_path" property="downloadPath"></result>
+	</resultMap>
+    <select id="selectChattingByChattingNo" parameterType="int" resultMap="chattingMap">
+		select *
+          from tb_chatting
+         where chatting_no = #{chattingNo}
+	</select>
+	<insert id="insertChatting" parameterType="chatting">
+			<selectKey resultType="int" keyProperty="chattingNo" order="AFTER"> 
+				select ifnull(max(chatting_no),0) from tb_chatting 
+			</selectKey> 
+		insert into tb_chatting(
+		project_no,
+		send_user_no,
+		message,
+		send_date,
+		msg_type_code
+		)
+		values(
+		#{projectNo},
+		#{sendUserNo},
+		#{message},
+		#{sendDate},
+		#{msgTypeCode}
+		)
+	</insert>
+	<update id="uploadFile" parameterType="chatting">
+		update tb_chatting
+		   set send_date = #{sendDate},
+		       message = #{message},
+		       ori_file_name = #{oriFileName},
+		       file_size = #{fileSize},
+		       download_path = #{downloadPath}
+		 where chatting_no = #{chattingNo}
+	</update>
+</mapper>

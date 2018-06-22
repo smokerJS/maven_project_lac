@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.lac.repository.mapper.ProjectMapper">
+	<resultMap id="projectMap" type="project">
+		<result column="project_no" property="projectNo"></result>
+		<result column="created_user_no" property="createdUserNo"></result>
+		<result column="maseter_user_no" property="maseterUserNo"></result>
+		<result column="project_info" property="projectInfo"></result>
+		<result column="project_name" property="projectName"></result>
+		<result column="project_pic" property="projectPic"></result>
+		<result column="maseter_user_nickname" property="maseterUserNickname"></result>
+		<result column="user_count" property="userCount"></result>
+	</resultMap>
+	<resultMap id="userMap" type="user">
+		<result column="user_No" property="userNo"></result>
+		<result column="project_No" property="projectNo"></result>
+		<result column="nickname" property="nickname"></result>
+		<result column="email" property="email"></result>
+		<result column="password" property="password"></result>
+		<result column="profile_pic" property="profilePic"></result>
+		<result column="login_state_code" property="loginStateCode"></result>
+	</resultMap>
+	<insert id="insertProject" parameterType="project">
+		<selectKey resultType="int" keyProperty="projectNo" order="AFTER"> 
+			select ifnull(max(project_no),0) from tb_project
+		</selectKey> 
+		insert into tb_project(
+		created_user_no,
+		maseter_user_no,
+		project_name
+		)values(
+		#{userNo},
+		#{userNo},
+		#{projectName}
+		)
+	</insert>
+	<insert id="insertProjectParticipant" parameterType="project">
+		insert into tb_project_participant(
+		project_no,
+		user_no
+		)values(
+		#{projectNo},
+		#{userNo}
+		)
+	</insert>
+	<select id="selectProjectList" parameterType="int" resultMap="projectMap">
+		select p.*, u.nickname as maseter_user_nickname, count(pp.user_no) as user_count
+		  from tb_project as p
+		 inner join tb_user as u
+		    on p.maseter_user_no = u.user_no
+		 inner join tb_project_participant as pp
+		    on p.project_no = pp.project_no
+		 where p.project_no in (select project_no
+								from tb_project_participant
+							   where user_no = #{userNo})
+		 group by p.project_no
+	</select>
+	<select id="selectProjectByNo" parameterType="int" resultMap="projectMap">
+	SELECT pp.*, count(pc.USER_NO)  as user_count
+	  FROM project_lac.tb_project pp
+	 inner join project_lac.tb_project_participant pc
+	    on pp.project_no=pc.project_no
+	 where pp.project_no=#{userNo}
+	</select>
+	<select id="selectProjectByUser" parameterType="int" resultMap="userMap">
+	select u.*,pc.project_no
+	  from project_lac.tb_user u
+      inner join project_lac.tb_project_participant pc
+		on u.user_no=pc.user_no
+	 where u.USER_NO in(
+		   SELECT pc.USER_NO
+		   FROM project_lac.tb_project pp
+		   inner join project_lac.tb_project_participant pc
+		   on pp.project_no=pc.project_no
+		   where pp.project_no=#{userNo})
+	group by u.user_no
+	</select>
+	<select id="selectInviteFriends" parameterType="search" resultMap="userMap">
+		select u.*
+		  from tb_user as u
+		 inner join tb_friends as f
+		    on u.user_no = f.user_no
+		 where f.f_user_no = #{userNo}
+		   and f.user_no not in (select user_no
+								   from tb_project_participant
+								  where project_no = #{projectNo}
+								)
+		   and u.nickname like concat('%',#{nickname},'%')
+		 order by u.nickname
+	</select>
+	<insert id="inviteFriends" parameterType="search" >
+	insert into project_lac.tb_project_participant(
+		project_no,user_no
+	)values(
+	  #{projectNo},#{userNo}
+	)
+	</insert>
+	<delete id="leaveProject" parameterType="search">
+	delete from project_lac.tb_project_participant
+	 where project_no=#{projectNo} 
+   	   and user_no=#{userNo}
+	</delete>
+	<select id="selectProjectNo" parameterType="search" resultType="search">
+	SELECT USER_NO 
+	  FROM project_lac.tb_project_participant 
+	 where project_no=#{projectNo} 
+	 order by join_date limit 1
+	</select>
+	<update id="updateProject" parameterType="search">
+	update project_lac.tb_project
+	<if test="type == 'master'">
+	   set maseter_user_no=#{userNo}
+    </if>
+	<if test="type == 'projectName'">
+	   set project_name=#{projectName}
+    </if>
+	<if test="type == 'projectInfo'">
+	   set project_info=#{projectInfo}
+    </if>
+	 where project_no=#{projectNo}
+	</update>
+</mapper>

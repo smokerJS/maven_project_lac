@@ -1,0 +1,299 @@
+.chatView,.chatView div{
+	border: none !important;
+}
+
+.chatView{
+	width: 100%;
+	height: auto;
+	margin: 3%;
+	display: inline-block;
+}
+.unknownChatView{
+	position:relative;
+	margin-top: -1%;
+}
+
+.profilePic{
+	width: 50px;
+	height: 50px;
+	z-index: 2;
+}
+
+.profilePic img{
+	border-radius: 100%;
+	width: 100%;
+	height: 100%;
+	border: 2px solid rgb(255,255,151,.5) !important;
+
+}
+
+.userNickname{
+	float: left;
+	position: absolute;
+	margin-left: 12.5%;
+	background-color: rgb(255,255,151,.5);
+	border-radius: 30%;
+	padding: 2%;
+	padding-left:0%;
+	padding-bottom: 0%;
+	z-index: 2;
+}
+
+
+.userMsg{
+	background-color: rgb(255,255,151,.5);
+	border-radius: 3%;
+	height:100%;
+	padding:1%;
+	padding-left:2%;
+	width: auto;
+	max-width: 65%;
+	font-size: 140%;
+	word-wrap: break-word;
+
+}
+.unknownUserMsg{
+	
+	margin-top: -10%;
+	margin-left: 12%;
+}
+.myUserMsg{
+	
+	float: right;
+	background-color: #BDFF12;
+	margin-right: 12%;
+	text-align: right;
+	clear: both;
+	z-index:2;
+	padding-right: 3%;
+}
+.myMsgArea{
+	position: relative;
+}
+.msgTri{
+  width: 0;
+  height: 0;
+  right: 6%;
+  top: 10%;
+  z-index:1;
+  border-right: 30px solid transparent;
+  border-top: 30px solid #BDFF12;
+  position: absolute;
+}
+
+#chatting_content{
+	overflow: auto;
+	overflow-x:hidden;  
+}
+
+#newMsgNoti,.joinMsg{
+	border: none;
+	text-align: center;
+	background-color: #00D8FF;
+	padding: 2%;
+	font-weight: bold;
+	position: fixed;
+	display: none;
+	width: 20%;
+	border-radius:2%;
+	top:5%;
+	right: 7%;
+}
+
+#inAndOutNoti{
+	position:relative;
+	z-index: 100;
+	border:none;
+}
+
+#uploadForm{
+	display: none;
+}
+
+.chattingImgArea{
+	width: 100%;
+	height: 100%;
+	padding: 3%;
+}
+.chattingImgArea img{
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+.newMsgNoti div{
+	border: none;
+}
+
+.newMsgNoti .profilePic{
+	position:absolute;
+	left: 3%;
+	bottom: 8%;
+}
+.newMsgNickname{
+	position: fixed;
+	bottom: 30%;
+	right: 22%;
+	font-size: 15%;
+}
+.newMsgText{
+	position: fixed;
+	bottom: 27%;
+	right: 18.6%;
+	width:90px;
+	overflow : hidden;
+    text-overflow: ellipsis;
+	white-space:nowrap;
+}
+
+.newMsgTri{
+  position:fixed;
+  width: 0;
+  height: 0;
+  z-index:1;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-top: 30px solid #FF6C6C;
+  bottom:24.5%;
+  right: 25%;
+}
+
+#newMsgNoti{
+	background-color: #FF6C6C;
+	top:66%;
+	right:18%;
+	height:4%;
+	width: 10%;
+	cursor: pointer;
+}
+
+.sendTime{
+	font-size: 10%;
+	color:gray;
+	text-align: left;
+}
+.unknownSendTime{
+	text-align: right;
+}
+.printToday{
+	width: 100%;
+	text-align: center;
+	border:none;
+	background-color: #FFD9FA;
+}
+
+.myChainMsg{
+	margin-top: -4%;
+}
+.unknownChainMsg{
+	margin-top: 8%;
+}
+.getFileBtn{
+	float: right;
+}
+.getFileBtnIcon{
+	position: absolute;
+	top: 35%;
+	margin-left: 5%;
+}
+.fristIcons{
+	top: 50%;
+}
+.getFileLoadingImgs{
+	width: 24px !important;
+	height: 24px !important;
+	cursor: default !important;
+	margin-left: 5%;
+	top: 35%;
+	position: absolute;
+	background-color: gainsboro;
+	opacity: .8;
+	border-radius: 100%;
+}
+#attachLoadingImgBox{
+	position: absolute;
+	border:none;
+	top:80%;
+	height: 20%;
+	background-color: black;
+	opacity: .7;
+	display:none;
+}
+#attachLoadingImgBox img{
+	width: 60%;
+	height: 100%;
+	margin-left: 20%;
+}
+#nodeUploadArea{
+	display:none;
+	position: fixed;
+	top: 67.5%;
+	right: 6.5%;
+	z-index: 5;
+	width: 11%;
+	background-color: rgb(142,125,122,.6);
+	padding: 0.4%;
+	border-radius:3%; 
+}
+#uploadProgBar{
+	width: 72%;
+}
+#uploadProgNum{
+	margin-left:2%;
+}
+#uploadProgName{
+	width: 100%;
+	font-weight:bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+    display: inline-block;
+	overflow: hidden;
+}
+.streamVideo{
+	width: 100%;
+	height: 150px;
+	position:static; 
+}
+.fileUploads{
+	font-size: 70% !important;
+	width: 100%;
+	font-weight:bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+    display: inline-block;
+	overflow: hidden;
+}
+.myFileUpload{
+	text-align: left !important;
+}
+.myViewIconLoading{
+	margin-top: 18%;
+}
+#emoArea{
+	position: absolute;
+	top:59.8%;
+	overflow: auto;
+	overflow-x: hidden; 
+	width: 99%;
+	height: 20%;
+	z-index: 10;
+	background-color: rgb(0,0,0,.6);
+	display: none;
+}
+.emoBox{
+	width: 10%;
+	height: 10%;
+	
+}
+.emoImg{
+	width: 15%;
+	height: 35%;
+	margin: 2%;
+	cursor: pointer;
+	border-radius:10%;
+	transition:.5s 
+}
+.emoImg:hover {
+	background-color: rgb(255,255,255,.7);
+}

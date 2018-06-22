@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.lac.repository.mapper.FriendsMapper">
+	<resultMap id="userMap" type="user">
+		<result column="user_no" property="userNo"></result>
+		<result column="nickname" property="nickname"></result>
+		<result column="email" property="email"></result>
+		<result column="password" property="password"></result>
+		<result column="profile_pic" property="profilePic"></result>
+		<result column="login_state_code" property="loginStateCode"></result>
+	</resultMap>
+	<select id="selectSearchUser" parameterType="search" resultMap="userMap">
+		select *
+		  from tb_user
+		 where user_no != #{userNo}
+		<if test="type == 'unknown'">
+		   and user_no not in (select f_user_no
+		                         from tb_friends
+		                        where user_no = #{userNo})
+		   and user_no not in (select f_res_u_no
+		   						 from tb_friends_request
+		   						where f_req_u_no = #{userNo})
+		   and user_no not in (select f_req_u_no
+		   						 from tb_friends_request
+		   						where f_res_u_no = #{userNo})
+		</if>
+		<if test="type == 'friends'">
+		   and user_no in (select f_user_no
+		                     from tb_friends
+		                    where user_no = #{userNo})
+		</if>
+		<if test="type == 'request'">
+		   and user_no in (select f_res_u_no
+		                     from tb_friends_request
+		                    where f_req_u_no = #{userNo})
+		</if>
+		<if test="type == 'response'">
+		   and user_no in (select f_req_u_no
+		                     from tb_friends_request
+		                    where f_res_u_no = #{userNo})
+		</if>
+		   and nickname like concat('%',#{nickname},'%')
+		 order by nickname
+	</select>
+	<insert id="insertFriendsRequest" parameterType="friendsRequest">
+		insert into tb_friends_request(
+		f_req_u_no,
+		f_res_u_no
+		)values(
+		#{fReqUNo},
+		#{fResUNo}
+		)
+	</insert>
+	<delete id="deleteFriendsRequest" parameterType="friendsRequest">
+		delete
+		  from tb_friends_request
+		 where f_req_u_no = #{fReqUNo}
+		   and f_res_u_no = #{fResUNo}
+	</delete>
+	<insert id="insertFriends" parameterType="friendsRequest">
+		insert into tb_friends(
+		user_no,
+		f_user_no
+		)values(
+		#{fReqUNo},
+		#{fResUNo}
+		)
+	</insert>
+	<delete id="deleteFriends" parameterType="friendsRequest">
+		delete
+		  from tb_friends
+		 where user_no = #{fReqUNo}
+		   and f_user_no = #{fResUNo}
+	</delete>
+	
+</mapper>

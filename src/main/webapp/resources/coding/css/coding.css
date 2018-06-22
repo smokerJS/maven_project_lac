@@ -1,0 +1,94 @@
+#compile {
+	position: fixed;
+	bottom: 0;
+	right: 29.5%;
+}
+
+.entryMouseViewWorkspace {
+	color: blue;
+	text-align: center;
+	width: 100px;
+}
+
+.blocklyDiv, .text_line {
+	padding: 0px;
+	height: 100%;
+	background-color: aliceblue;
+}
+
+.compile_box {
+    margin-left: 29px;
+    width: 92.5%;
+	padding: 0px;
+	height: 20%;
+    overflow: auto;
+        top: -6px;
+    position: relative;
+}
+
+.source_box ,.CodeMirror{
+	padding: 0px;
+	height: 80%;
+}
+
+.box {
+	z-index: 3;
+	position: relative;
+}
+
+.content_box {
+	margin-top: 0px;
+	height: 739px;
+}
+
+.loading_img {
+	display: none;
+}
+
+div {
+	border: none;
+}
+
+.source_box {
+	width: 100%;
+	resize: none;
+}
+#showCode{
+	    float: right;
+    margin-right: 100px;
+}
+#firends_invite{
+    display: none;
+    height: 50%;
+    width: 20%;
+    top: 25%;
+    left: 40%;
+    z-index: 1000;
+    position: fixed;
+    background-color: #fff;
+}
+.side_member_icon {
+    line-height: 58px;
+}
+#search_invite{
+    display: none;
+    height: 50%;
+    width: 20%;
+    top: 18%;
+    left: 40%;
+    z-index: 1000;
+    position: fixed;
+    background-color: #fff;
+}
+#srarch_my_invite{
+    height: 14%;
+    width: 100%;
+}
+#side_name > span:nth-child(1),#side_board > span:nth-child(1){
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+    width: 250px;
+    display: inline-block;
+	overflow: hidden;
+}

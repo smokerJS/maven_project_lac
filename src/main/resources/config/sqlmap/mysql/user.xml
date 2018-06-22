@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.lac.repository.mapper.UserMapper">
+	<resultMap id="userMap" type="user">
+		<result column="user_no" property="userNo"></result>
+		<result column="nickname" property="nickname"></result>
+		<result column="email" property="email"></result>
+		<result column="password" property="password"></result>
+		<result column="profile_pic" property="profilePic"></result>
+		<result column="login_state_code" property="loginStateCode"></result>
+	</resultMap>
+	<select id="selectUserEmail" parameterType="String" resultMap="userMap">
+		SELECT * 
+		FROM project_lac.tb_user 
+		where email = #{email}
+	</select>
+	<insert id="insertUser" parameterType="user">
+		<selectKey resultType="int" keyProperty="userNo" order="AFTER"> 
+			select ifnull(max(user_no),0) from tb_user
+		</selectKey> 
+		insert into tb_user(nickname, email, password)
+		values(#{nickname},#{email},#{password})
+	</insert>
+	
+	<select id="findUserByPass" parameterType="user" resultType="int">
+	 	select count(*)
+	 	  from tb_user
+	 	 where user_no = #{userNo} and password = #{password}
+	</select>
+	<select id="findUserByNo" parameterType="int" resultMap="userMap">
+	 	select *
+	 	  from tb_user
+	 	 where user_no = #{userNo}
+	</select>
+	<update id="editPass" parameterType="user">
+		update tb_user
+	  	   set password=#{password}
+		where user_no=#{userNo}
+	</update>
+	
+	<update id="editNick" parameterType="user">
+	   update tb_user
+	      set nickname=#{nickname}
+	 	where user_no=#{userNo}
+	</update>
+	
+	<update id="leaveId" parameterType="user">
+	 update tb_user
+	    set login_state_code = '00104'
+	 where user_no=#{userNo}
+	</update>
+	
+	<insert id="insertJoinNoti" parameterType="user">
+		insert into tb_notification(noti_type_code,noti_req_no,noti_res_no,noti_attach_msg)
+		values('00205',15,#{userNo},#{nickname})
+	</insert>
+	
+	
+</mapper>

@@ -1,0 +1,15 @@
+#compile{
+    position: fixed;
+    bottom: 0;
+    right: 29.5%;
+}
+.entryMouseViewWorkspace{
+	color: blue;
+	text-align: center;
+    width: 100px;
+}
+ .block_box ,.text_line{
+        height: 100%;
+        background-color: aliceblue;
+        position: relative;
+ }
