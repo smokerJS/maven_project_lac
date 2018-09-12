@@ -43,7 +43,7 @@ SourceTree<br>
 (https://github.com/eunbeeLee/maven_project_lac)<br>
 
 ---------------------------------------
-![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529629772134-test.png)
+![Alt Text](./readMeImg/1_member.png)
 
 ---------------------------------------
 
@@ -66,9 +66,9 @@ SourceTree<br>
 
 >Main View
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529581364364-%EB%A9%94%EC%9D%B81.png)
+>![Alt Text](./readMeImg/2_server.png)
 ><br><br>
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529581415732-%EB%A9%94%EC%9D%B8.gif)<br>
+>![Alt Text](./readMeImg/3_main.png)<br>
 >
 >**간편한 프로젝트 생성과 다양한 기능의 채팅 서비스**<br><br>
 >project lac 는 간단하게 블록코딩을 즐기며<br>
@@ -78,12 +78,12 @@ SourceTree<br>
 
 >실시간 알림과 함께하는 친구관리와 프로젝트 생성 및 초대
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529629744549-server.png)<br><br>
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529582178327-%EC%A0%9C%EB%AA%A9+%EC%97%86%EC%9D%8C.png)<br><br>
+>![Alt Text](./readMeImg/4_project1.gif)<br><br>
+>![Alt Text](./readMeImg/5_project2.png)<br><br>
 **두가지의 서버에서 데이터를 주고받는 방식**
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529581692058-%EC%B9%9C%EA%B5%AC%EC%8B%A0%EC%B2%AD.gif)
+>![Alt Text](./readMeImg/6_friends.gif)
 ><br><br>
 >**친구신청 & 수락**<br><br>
 >친구 신청과 수락은 Spring Framework 를 구동하는 80 port 에 데이터를 전송하여 처리하고<br>
@@ -91,12 +91,12 @@ SourceTree<br>
 >각 서버가 서로 다른 처리를 하여 더욱 효율적인 처리가 가능하다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529582571995-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%83%9D%EC%84%B1.gif)<br><br>
+>![Alt Text](./readMeImg/7_create.gif)<br><br>
 >**간단한 프로젝트 생성과 탈퇴**<br><br>
 >직관적인 UI와 최소한의 정보로 프로젝트를 생성하고 탈퇴한다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529582618145-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%B4%88%EB%8C%80.gif)<br><br>
+>![Alt Text](./readMeImg/8_req.gif)<br><br>
 >**실시간으로 프로젝트 초대장 발송**<br><br>
 >초대받은 유저가 바로 인지하기 위하여<br>
 >오른쪽 하단 알림창에 초대장 발송 내역이 즉시 보인다.<br>
@@ -105,45 +105,45 @@ SourceTree<br>
 
 >다양한 기능의 채팅
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529583245042-%EC%B1%84%ED%8C%85%EA%B8%B0%EB%8A%A5.png)
+>![Alt Text](./readMeImg/9_chat1.gif)
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529583753697-%EC%B1%84%ED%8C%85%EB%B0%A9%EC%95%8C%EB%A6%BC.gif)<br>
+>![Alt Text](./readMeImg/10_chat2.gif)<br>
 >
 >**채팅방 알림**<br><br>
 >채팅방 입장 알림과 이전 채팅 내용을 확인할 때<br>
 >새로운 메세지를 전송받으면 해당 메세지의 정보를 알려준다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529584003560-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98.gif)<br>
+>![Alt Text](./readMeImg/11_emo.gif)<br>
 >
 >**100여가지 이상의 이모티콘**<br><br>
 >가지각색의 이모티콘으로 상황에 맞는 의사표현이 가능하다.<br>
 >이모티콘은 버튼 하나만 누르면 간단하게 사용이 가능하다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529584082703-%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C.gif)<br>
+>![Alt Text](./readMeImg/12_file.gif)<br>
 >
 >**빠르고 간편한 파일 첨부와 다운로드**<br><br>
 >node.js 의 express 에 multer middleware 를 사용하여<br>
 >쉽고 빠른 업 & 다운로드를 구현하였다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529584484728-%EB%8F%99%EC%98%81%EC%83%81%EC%97%85%EB%A1%9C%EB%93%9C.gif)<br>
+>![Alt Text](./readMeImg/13_video.gif)<br>
 >
 >**동영상 업로드와 실시간 스트리밍 서비스**<br><br>
 >또한 node.js 서버단에 vid-streamer 를 이용하여 스트리밍 전용 서버를 구성하고<br>
 >사용자는 브라우저가 동영상을 읽는 동시에 동영상 시청이 가능하다.<br>
 >
 >---------
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529584744309-%EC%82%AC%EC%A7%84%EC%97%85%EB%A1%9C%EB%93%9C.gif)<br>
+>![Alt Text](./readMeImg/14_poto1.gif)<br>
 >
 >**사진첨부는 File API 를 이용한 빠른 미리보기와 다운로드를 제공**<br><br>
 >여러가지 사진을 한번에 첨부할 수 있다.<br>
 >사진첨부는 파일/동영상과 달리 Spring 서버단에서 읽기 쓰기가 이루어진다.<br>
 ><br><br><br>
 >
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529585074524-%EC%A0%9C%EB%AA%A9+%EC%97%86%EC%9D%8C2.png)<br><br>
+>![Alt Text](./readMeImg/15_poto2.png)<br><br>
 >1. 첨부와 동시에 javascript에서 File API로 해당 이미지를 읽어 socket 통신을 진행<br>
 >2. spring 서버단에서 DB에 정보를 입력하고 파일쓰기 진행<br>
 >3. 브라우저로 File API에서 읽어낸 미리보기 정보 전송/첨부 이미지 확인<br>
@@ -166,14 +166,14 @@ SourceTree<br>
 >---------
 >**domain / controller / service / impl**<br>
 >
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529589193322-%EA%B5%AC%EC%A1%B0.png)<br><br>
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529589301045-%EA%B5%AC%EC%A1%B0+2.png)<br><br>
+>![Alt Text](./readMeImg/16_controller.png)<br><br>
+>![Alt Text](./readMeImg/17_service.png)<br><br>
 
 ---------------------------------------
 >ERD - [MySQL]
 >---------
 >
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529629763301-erd.png)<br><br>
+>![Alt Text](./readMeImg/18_erd.png)<br><br>
 
 ---------------------------------------
 
@@ -183,7 +183,7 @@ SourceTree<br>
 >---------
 >**소스트리를 사용하여 수정 및 업데이트가 있을때마다 수시로 관리**<br>
 >
->![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529587132637-lac%EC%86%8C%EC%8A%A4%EA%B4%80%EB%A6%AC.gif)<br>
+>![Alt Text](./readMeImg/19_source.gif)<br>
 
 ---------------------------------------
 
