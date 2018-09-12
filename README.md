@@ -105,7 +105,7 @@ SourceTree<br>
 
 >다양한 기능의 채팅
 >---------
->![Alt Text](./readMeImg/9_chat1.gif)
+>![Alt Text](./readMeImg/9_chat1.png)
 >
 >---------
 >![Alt Text](./readMeImg/10_chat2.gif)<br>
